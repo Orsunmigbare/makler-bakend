@@ -1,0 +1,21 @@
+import express from "express";
+export const app = express();
+import dotenv from "dotenv";
+import morgan from "morgan";
+import * as body_parser from "body-parser";
+import { API_ROUTER as api } from "./api";
+dotenv.config();
+app.use(morgan("tiny"));
+// let db = require('./db');
+app.use(body_parser.urlencoded({ extended: false }));
+app.use(body_parser.json());
+console.log("dir filename", __dirname, __dirname);
+console.log("------> db", process.env.DB_NAME, __filename);
+const port = process.env.PORT || 3005;
+import { authenticate as db } from "./db";
+app.set("port", port);
+api(app);
+db();
+app.listen(port, () => {
+  console.log(`server started successfully on port ${port}`);
+});

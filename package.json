@@ -2,9 +2,11 @@
   "name": "makler-back-end",
   "version": "1.0.0",
   "description": "back end system for makler",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/app.js",
+    "run-dev": "tsc && nodemon app.ts"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,35 @@
     "hostels"
   ],
   "author": "Gbare Oyekan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "mysql": "^2.17.1",
+    "mysql2": "^2.0.0",
+    "npm": "^6.12.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/sequelize": "github:types/sequelize#69b371d",
+    "eslint": "6.1.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  }
 }
