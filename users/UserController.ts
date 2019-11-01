@@ -28,6 +28,7 @@ export const forgotPassword = async (req, res, next)=> {
 
 
 
+
 export const restetPassword = async (req, res, next) => {
   try {
     let { reset_token, new_password, email } = req.body;

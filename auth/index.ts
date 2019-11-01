@@ -32,3 +32,25 @@ export const CreateAccount = async (req, res, next) => {
     next(e);
   }
 };
+
+export const login = async (req, res, next) => {
+    let { email, password } = req.body;
+    let user = await UserRepository.findUserByEmail(email)
+    if (!user) return _createResponseMessage(res, {
+        data: '',
+        message: "Incorrect Username or Password",
+        code: 400,
+        status: "failed"
+    });
+    let password_hash = user.get('password'),
+        password_correct = bcrypt.compare(password, password_hash);
+    if (!password_correct) return _createResponseMessage(res, {
+        data: '',
+        message: "Incorrect Username or Password",
+        code: 400,
+        status: "failed"
+    }); 
+
+    
+
+}
